@@ -17,18 +17,22 @@ export class BasicLineEchartsComponent implements OnInit {
 
   _chartOption !:EChartOption;
   subscription!: Subscription;
-  map !: any;
   constructor(private echartService :EchartService) { 
-    this.map = ""
   }
 
   ngOnInit(): void {
-    this.subscription = this.echartService.getbasicLineEchartData().subscribe(data=>{
-      this._initBasicLineEchart(data);
-    });
+    // this.subscription = this.echartService.getbasicLineEchartData().subscribe(data=>{
+    //   this._initBasicLineEchart(data);
+    // });
+    this._initMapEchart();
   }
 
-  private _initBasicLineEchart(chartData : BasicEchartLineModel[]){
+  // private _initBasicLineEchart(chartData : BasicEchartLineModel[]){
+  public onChartClick(e: any): void {
+    console.log(`se hizo click en ${e.name}`);
+  }
+
+  private _initMapEchart(){
 
     $.get("https://raw.githubusercontent.com/crvargasu/angular---echarts/map/src/assets/echart/all.json", function(cljson){
       echarts.registerMap('Cl', cljson, {
@@ -55,7 +59,7 @@ export class BasicLineEchartsComponent implements OnInit {
         feature: {
           dataView: {readOnly: false},
           restore: {},
-          saveAsImage: {}
+          saveAsImage: {},
         }
       },
       series: [
