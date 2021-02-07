@@ -106,6 +106,18 @@ export class MetropolitanaComponent implements OnInit {
           {name: "Padre Hurtado", value: 1000},
           {name: "Quinta Normal", value: 1000},
           {name: "Recoleta", value: 1000},
+          {name: "Renca", value: 1000},
+          {name: "San Miguel", value: 1000},
+          {name: "Huechuraba", value: 1000},
+          {name: "La Cisterna", value: 1000},
+          {name: "La Granja", value: 1000},
+          {name: "La Pintana", value: 1000},
+          {name: "La Reina", value: 1000},
+          {name: "Las Condes", value: 1000},
+          {name: "Maipú", value: 1000},
+          {name: "Ñuñoa", value: 1000},
+          {name: "Peñaflor", value: 1000},
+          {name: "Estación Central", value: 1000},
       ],
       
       
@@ -114,7 +126,7 @@ export class MetropolitanaComponent implements OnInit {
         {  
           left: 'right',
           min: 0,
-          max: 15,
+          max: 60,
           dimension: 3,
           inRange: {
             color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026'], 
