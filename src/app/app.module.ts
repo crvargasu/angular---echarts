@@ -8,11 +8,13 @@ import { NgxEchartsModule} from 'ngx-echarts';
 import { EchartService } from './echarts/echart.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MetropolitanaComponent } from './echarts/regiones/metropolitana/metropolitana.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasicLineEchartsComponent
+    BasicLineEchartsComponent,
+    MetropolitanaComponent
   ],
   imports: [
     BrowserModule,
