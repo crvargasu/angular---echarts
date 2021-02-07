@@ -7,6 +7,6 @@ import {BasicEchartLineModel} from './echart.model';
 export class EchartService {
   constructor(private httpClient: HttpClient) { }
   getbasicLineEchartData() :Observable<BasicEchartLineModel[]>{
-    return this.httpClient.get<BasicEchartLineModel[]>('assets/echart/basic-line-chart-data.json');
+    return this.httpClient.get<BasicEchartLineModel[]>('assets/echart/USA.json');
   }
 }

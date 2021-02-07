@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: 'basic-line-echart',
     component: BasicLineEchartsComponent
-  }
+  },
 ];
 
 @NgModule({
