@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { EchartService } from '../../echart.service';
 import { EChartOption } from 'echarts';
-import { BasicEchartLineModel} from '../../echart.model';
+import { Comunas_RM} from '../../echart.model';
 import * as echarts from 'echarts';
 import $ from "jquery";
 

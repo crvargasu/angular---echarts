@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { EchartService } from '../../echart.service';
 import { EChartOption } from 'echarts';
+import { Comunas_RM} from '../../echart.model';
 import * as echarts from 'echarts';
 import $ from "jquery";
 
@@ -12,14 +14,19 @@ import $ from "jquery";
 export class MetropolitanaComponent implements OnInit {
 
   _chartOption !:EChartOption;
+  subscription!: Subscription;
   
   constructor(private echartService :EchartService) { }
 
   ngOnInit(): void {
-    this._initMetropEchart();
+    this.subscription = this.echartService.getbasicLineEchartData().subscribe(data=>{
+      this._initMetropChart(data);
+    });
+    // this._initMetropEchart();
   }
 
-  private _initMetropEchart(){
+  private _initMetropChart(chartData : Comunas_RM[]){
+  // private _initMetropEchart(){
 
     $.get("https://raw.githubusercontent.com/crvargasu/angular---echarts/map/src/assets/echart/metropolitana.json", function(metrjson){
       echarts.registerMap('Metr', metrjson, {
@@ -29,7 +36,7 @@ export class MetropolitanaComponent implements OnInit {
 
     this._chartOption = {
       title: {
-        text: 'Chile',
+        text: 'Region Metropolitana',
         left: 'right'
     },
 
@@ -60,13 +67,14 @@ export class MetropolitanaComponent implements OnInit {
             }
         },
         data:[
-          {name: "San Pedro", value: 1000}
+          {name: "María Pinto", value: 1000},
+          {name: "San Pedro", value: 1000},
+          {name: "Independencia", value: 1000},
+          {name: "La Florida", value: 1000},
+          {name: "Lo Barnechea", value: 1000},
+          {name: "Lo Espejo", value: 1000},
       ],
       
-        // data: chartData.map(m => ({
-        //   value: m.value,
-        //   name: m.name
-        // })),
       
       }],
       visualMap: [

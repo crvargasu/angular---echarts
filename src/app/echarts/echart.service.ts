@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
-import {BasicEchartLineModel} from './echart.model';
+import {Comunas_RM} from './echart.model';
 
 @Injectable()
 export class EchartService {
   constructor(private httpClient: HttpClient) { }
-  getbasicLineEchartData() :Observable<BasicEchartLineModel[]>{
-    return this.httpClient.get<BasicEchartLineModel[]>('assets/echart/all.json');
+  getbasicLineEchartData() :Observable<Comunas_RM[]>{
+    return this.httpClient.get<Comunas_RM[]>('assets/echart/all.json');
   }
 }
