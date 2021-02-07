@@ -30,7 +30,7 @@ export class BasicLineEchartsComponent implements OnInit {
 
   private _initBasicLineEchart(chartData : BasicEchartLineModel[]){
 
-    $.get("https://raw.githubusercontent.com/crvargasu/angular---echarts/map/src/assets/echart/USA.json", function(usjson){
+    $.get("https://raw.githubusercontent.com/crvargasu/angular---echarts/map/src/assets/echart/chile-regiones.json", function(usjson){
       echarts.registerMap('USA', usjson, {
         
       });
