@@ -30,7 +30,7 @@ export class BasicLineEchartsComponent implements OnInit {
 
   private _initBasicLineEchart(chartData : BasicEchartLineModel[]){
 
-    $.get("https://raw.githubusercontent.com/crvargasu/angular---echarts/map/src/assets/echart/chile-regiones.json", function(usjson){
+    $.get("https://raw.githubusercontent.com/crvargasu/angular---echarts/map/src/assets/echart/all.json", function(usjson){
       echarts.registerMap('USA', usjson, {
         
       });
@@ -46,7 +46,7 @@ export class BasicLineEchartsComponent implements OnInit {
       visualMap: [
         {
           min: 0,
-          max: 5000,
+          max: 7000,
           dimension: 3,
           inRange: {
             color: ['blue', '#121122', 'red'], 
@@ -78,6 +78,7 @@ export class BasicLineEchartsComponent implements OnInit {
             }
         },
         data:[
+          {name:"Región de Valparaíso", value: 4822023},
           
       ]
         // data: chartData.map(m => ({
