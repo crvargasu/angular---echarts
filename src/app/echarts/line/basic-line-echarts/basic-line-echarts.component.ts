@@ -5,6 +5,7 @@ import { EChartOption } from 'echarts';
 import { Comunas_RM} from '../../echart.model';
 import * as echarts from 'echarts';
 import $ from "jquery";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -30,6 +31,9 @@ export class BasicLineEchartsComponent implements OnInit {
   // private _initBasicLineEchart(chartData : BasicEchartLineModel[]){
   public onChartClick(e: any): void {
     console.log(`se hizo click en ${e.name}`);
+    if(e.name == "Región Metropolitana de Santiago"){
+      window.location.href = "/Metropolitana"
+    }
   }
 
   private _initMapEchart(){

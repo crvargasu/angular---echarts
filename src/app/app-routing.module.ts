@@ -5,7 +5,7 @@ import { MetropolitanaComponent } from './echarts/regiones/metropolitana/metropo
 
 const routes: Routes = [
   {
-    path: 'basic-line-echart',
+    path: 'Regiones',
     component: BasicLineEchartsComponent
   },
   {
