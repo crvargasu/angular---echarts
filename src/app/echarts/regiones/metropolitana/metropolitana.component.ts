@@ -16,9 +16,16 @@ export class MetropolitanaComponent implements OnInit {
   _chartOption !:EChartOption;
   subscription!: Subscription;
   public zoom !: number;
+  public comuna: string;
+
+  opened !: boolean;
+  events: string[] = [];
+  shouldRun = true;
+
   
   constructor(private echartService :EchartService) { 
     this.zoom = 1;
+    this.comuna = ""
   }
 
   ngOnInit(): void {
@@ -26,6 +33,10 @@ export class MetropolitanaComponent implements OnInit {
     //   this._initMetropChart(data);
     // });
     this._initMetropEchart();
+  }
+
+  sidenavController(sidenav: any) {
+    sidenav.toggle()
   }
 
   public increaseZoom(): void {
@@ -39,6 +50,14 @@ export class MetropolitanaComponent implements OnInit {
       this._initMetropEchart()
     }
   }
+
+  public onChartClick(e: any, sidenav: any): void {
+    console.log(`se hizo click en ${e.name}`);
+    this.sidenavController(sidenav);
+    this.comuna = e.name;
+    // sidenav.toggle();
+  }
+
 
   // private _initMetropChart(chartData : Comunas_RM[]){
   private _initMetropEchart(){
@@ -145,7 +164,7 @@ export class MetropolitanaComponent implements OnInit {
           max: 60,
           dimension: 3,
           inRange: {
-            color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026'], 
+            color: ['#DFDFEB', '#06064D'], 
             symbolSize: [30, 100]
           },
           text: ['High', 'Low'],

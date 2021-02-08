@@ -1,6 +1,28 @@
-<div echarts [options] = "_chartOption"></div>
 
-<div>
-    <button (click)="increaseZoom()">+</button>
-    <button (click)="decreaseZoom()">-</button>
-</div>
+<mat-sidenav-container class="example-container" *ngIf="shouldRun">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+      <h3>Educación</h3>
+      <h2>{{comuna}}</h2>
+      <hr>
+      Acceso a servicios de educación
+      <hr>
+      Calidad servicios de educación
+      <hr>
+      Indicadores Educativos
+      <hr>
+      <button class = "close-button" (click)="sidenavController(sidenav)">Close</button>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <!-- <p><button mat-button (click)="sidenavController(sidenav)">sidenav.toggle()</button></p> -->
+      <div style="height:700px;" echarts [options] = "_chartOption" (chartClick)="onChartClick($event, sidenav)"></div>
+      <div>
+        <button (click)="increaseZoom()">+</button>
+        <button (click)="decreaseZoom()">-</button>
+    </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  
+  
