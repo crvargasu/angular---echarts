@@ -5,7 +5,6 @@ import { EChartOption } from 'echarts';
 import { Comunas_RM} from '../../echart.model';
 import * as echarts from 'echarts';
 import $ from "jquery";
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +17,9 @@ export class BasicLineEchartsComponent implements OnInit {
 
   _chartOption !:EChartOption;
   subscription!: Subscription;
+  public zoom !: number;
   constructor(private echartService :EchartService) { 
+    this.zoom = 1;
   }
 
   ngOnInit(): void {
@@ -33,6 +34,18 @@ export class BasicLineEchartsComponent implements OnInit {
     console.log(`se hizo click en ${e.name}`);
     if(e.name == "Región Metropolitana de Santiago"){
       window.location.href = "/Metropolitana"
+    }
+  }
+
+  public increaseZoom(): void {
+    this.zoom ++;
+    this._initMapEchart()
+  }
+
+  public decreaseZoom(): void {
+    if(this.zoom > 0){
+      this.zoom --;
+      this._initMapEchart()
     }
   }
 
@@ -70,6 +83,7 @@ export class BasicLineEchartsComponent implements OnInit {
         {
           name: 'Chile Region',
           type: 'map',
+          zoom: this.zoom,
           map: 'Cl',
           roam: true,
           emphasis: {

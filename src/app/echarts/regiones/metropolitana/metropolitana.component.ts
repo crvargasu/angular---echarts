@@ -15,18 +15,33 @@ export class MetropolitanaComponent implements OnInit {
 
   _chartOption !:EChartOption;
   subscription!: Subscription;
+  public zoom !: number;
   
-  constructor(private echartService :EchartService) { }
-
-  ngOnInit(): void {
-    this.subscription = this.echartService.getbasicLineEchartData().subscribe(data=>{
-      this._initMetropChart(data);
-    });
-    // this._initMetropEchart();
+  constructor(private echartService :EchartService) { 
+    this.zoom = 1;
   }
 
-  private _initMetropChart(chartData : Comunas_RM[]){
-  // private _initMetropEchart(){
+  ngOnInit(): void {
+    // this.subscription = this.echartService.getbasicLineEchartData().subscribe(data=>{
+    //   this._initMetropChart(data);
+    // });
+    this._initMetropEchart();
+  }
+
+  public increaseZoom(): void {
+    this.zoom ++;
+    this._initMetropEchart()
+  }
+
+  public decreaseZoom(): void {
+    if(this.zoom > 0){
+      this.zoom --;
+      this._initMetropEchart()
+    }
+  }
+
+  // private _initMetropChart(chartData : Comunas_RM[]){
+  private _initMetropEchart(){
 
     $.get("https://raw.githubusercontent.com/crvargasu/angular---echarts/map/src/assets/echart/metropolitana.json", function(metrjson){
       echarts.registerMap('Metr', metrjson, {
@@ -60,6 +75,7 @@ export class MetropolitanaComponent implements OnInit {
           name: 'Metropolitana',
           type: 'map',
           map: 'Metr',
+          zoom: this.zoom,
           roam: true,
           emphasis: {
             label: {

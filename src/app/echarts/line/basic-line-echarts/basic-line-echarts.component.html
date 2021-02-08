@@ -1,1 +1,5 @@
 <div echarts [options] = "_chartOption" (chartClick)="onChartClick($event)"></div>
+<div>
+    <button (click)="increaseZoom()">+</button>
+    <button (click)="decreaseZoom()">-</button>
+</div>
