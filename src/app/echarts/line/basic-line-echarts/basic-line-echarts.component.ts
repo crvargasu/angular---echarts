@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { EchartService } from '../../echart.service';
 import { EChartOption } from 'echarts';
-import { Comunas_RM} from '../../echart.model';
 import * as echarts from 'echarts';
 import $ from "jquery";
 
@@ -11,14 +9,14 @@ import $ from "jquery";
   selector: 'app-basic-line-echarts',
   templateUrl: './basic-line-echarts.component.html',
   styleUrls: ['./basic-line-echarts.component.scss'],
-  providers: [EchartService]
+  providers: []
 })
 export class BasicLineEchartsComponent implements OnInit {
 
   _chartOption !:EChartOption;
   subscription!: Subscription;
   public zoom !: number;
-  constructor(private echartService :EchartService) { 
+  constructor() { 
     this.zoom = 1;
   }
 
@@ -36,7 +34,7 @@ export class BasicLineEchartsComponent implements OnInit {
       window.location.href = "/Metropolitana"
     }
   }
-
+  
   public increaseZoom(): void {
     this.zoom ++;
     this._initMapEchart()
@@ -122,7 +120,7 @@ export class BasicLineEchartsComponent implements OnInit {
           max: 15,
           dimension: 3,
           inRange: {
-            color: ['#DFDFEB', '#06064D'], 
+            color: ['#DFDFEB', '#1B1464'], 
             symbolSize: [30, 100]
           },
           text: ['High', 'Low'],

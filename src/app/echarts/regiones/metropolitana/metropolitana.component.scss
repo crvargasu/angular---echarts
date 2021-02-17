@@ -5,7 +5,8 @@
 
 .mat-drawer.mat-drawer-side {
     z-index: 2;
-    background-color: rgb(6, 6, 77);
+    background-color: #1B1464;
+    font-family: 'Karla', sans-serif;
 }
 
 .close-button {
@@ -13,3 +14,18 @@
     margin-left: 70%;
 }
 
+.font-echart {
+    font-family: 'Karla', sans-serif;
+    font-size: 11.5px;
+    font-weight: 550;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.font-echart2 {
+    font-family: 'Karla', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
